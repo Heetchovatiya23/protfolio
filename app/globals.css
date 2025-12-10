@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../styles/animations.css";
+
+:root {
+  --font-sans: "Inter";
+  --font-display: "Space Grotesk";
+  --font-mono: "IBM Plex Mono";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-montreal-mono), var(--font-sans), system-ui, sans-serif;
+  background-color: #dcdcd4;
+  color: #141412;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+::selection {
+  background: theme("colors.accent");
+  color: #020202;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+}

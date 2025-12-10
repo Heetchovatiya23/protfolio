@@ -1,0 +1,264 @@
+[
+  {
+    "id": "TC001",
+    "title": "Verify portfolio renders correctly across multiple screen sizes",
+    "description": "Ensure that the portfolio layout and all sections (Hero, About, Skills, Projects, Contact) render properly and are visually distinct on desktop, tablet, and mobile devices with no layout breaking or content overlap.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open portfolio landing page on desktop resolution"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify all sections are visible, distinct, and layout is correct without overflow or overlapping"
+      },
+      {
+        "type": "action",
+        "description": "Resize viewport to tablet screen size"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify layout adjusts responsively with no horizontal scrolling or missing content"
+      },
+      {
+        "type": "action",
+        "description": "Resize viewport to mobile screen size"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm all sections stack appropriately and text remains readable with no clipping"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Validate JetBrains Mono font loads correctly and applies consistently",
+    "description": "Check that the custom JetBrains Mono font is loaded without errors and is applied consistently across all text elements in the portfolio on supported browsers.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to portfolio landing page"
+      },
+      {
+        "type": "assertion",
+        "description": "Use browser developer tools to verify the CSS variable --font-montreal-mono is applied"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm font-family of rendered text elements includes JetBrains Mono"
+      },
+      {
+        "type": "assertion",
+        "description": "Check network tab for successful font file loading with no errors"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Test GSAP ScrollTrigger animations on section titles and contents",
+    "description": "Verify that GSAP scroll-based animations trigger smoothly as the user scrolls through each portfolio section and content reveals as intended without performance issues or glitches.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open portfolio page and scroll slowly from top to bottom"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm animation triggers visibly on each section's title and content when entering viewport"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify animations are smooth without jank or freezing on multiple browsers"
+      },
+      {
+        "type": "action",
+        "description": "Scroll quickly up and down multiple times"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm animations refresh or trigger correctly without errors"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Validate SEO metadata in root layout is correctly set and present",
+    "description": "Check the portfolio root layout for presence of correct metadata tags for SEO including title, description, and other relevant metadata and verify through SEO tools.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Inspect page source or developer tools for metadata tags"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm presence of SEO meta tags such as <title>, <meta name='description'>, and Open Graph tags"
+      },
+      {
+        "type": "action",
+        "description": "Run an automated SEO analysis tool on the portfolio URL"
+      },
+      {
+        "type": "assertion",
+        "description": "Check report shows correct metadata and no critical SEO issues"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Verify scroll animations unregister and refresh on component unmount",
+    "description": "Ensure that the GSAP ScrollTrigger animations registered via useSectionReveal hook cleanup correctly by unregistering and refreshing on component unmount to prevent memory leaks or errors.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Render a portfolio section that uses the useSectionReveal hook"
+      },
+      {
+        "type": "action",
+        "description": "Navigate away or unmount the section"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm that useSectionReveal calls GSAP ScrollTrigger refresh and unregisters listeners during cleanup"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no console errors or warnings occur related to GSAP during or after unmount"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Check build and deployment process completes successfully without errors",
+    "description": "Run the npm build and deployment process validating that type checks, linting, and bundling run without errors or warnings and the output artifacts (including server manifest and trace files) are generated correctly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Execute npm install to install dependencies"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no deprecated dependency warnings or errors appear"
+      },
+      {
+        "type": "action",
+        "description": "Run npm build command to build the Next.js portfolio app"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm type checks and linting complete successfully"
+      },
+      {
+        "type": "assertion",
+        "description": "Check build completes without errors or warnings"
+      },
+      {
+        "type": "assertion",
+        "description": "Validate that build artifacts .next/server/server-reference-manifest.js, .json and .next/trace are created"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Verify presence and correctness of server reference manifest and metadata",
+    "description": "Ensure that the server-reference-manifest files include the expected metadata such as encryption keys and correct references required for secure server rendering.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the .next/server/server-reference-manifest.json file"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm presence of encryption key metadata in the manifest"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify references and keys match expected formats and no missing data"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Validate that Next.js build trace file captures timing events",
+    "description": "Inspect the .next/trace file to verify it logs client, server, and edge build pipeline timing events correctly for performance and debugging purposes.",
+    "category": "functional",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the .next/trace file after a successful build"
+      },
+      {
+        "type": "assertion",
+        "description": "Check the file contains timing records for client, server, and edge build pipelines"
+      },
+      {
+        "type": "assertion",
+        "description": "Ensure timestamps and event logs are consistent and valid JSON"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Test error handling by simulating GSAP ScrollTrigger load failure",
+    "description": "Simulate a scenario where GSAP ScrollTrigger fails to register due to script loading errors and verify the app handles this gracefully without crashing or freezing and logs meaningful errors.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Mock failure or block loading of GSAP ScrollTrigger library"
+      },
+      {
+        "type": "action",
+        "description": "Load the portfolio page and scroll through sections triggering useSectionReveal"
+      },
+      {
+        "type": "assertion",
+        "description": "Confirm the app does not crash or freeze"
+      },
+      {
+        "type": "assertion",
+        "description": "Check for error logs indicating ScrollTrigger failed to register"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Verify accessibility and keyboard navigation of portfolio sections",
+    "description": "Ensure that all portfolio sections can be accessed and navigated via keyboard controls and screen readers to comply with accessibility standards.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open portfolio landing page with keyboard only (no mouse)"
+      },
+      {
+        "type": "action",
+        "description": "Use tab key to navigate through Hero, About, Skills, Projects, Contact sections"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify focus rings are visible on interactive elements if any, and sections receive focus logically"
+      },
+      {
+        "type": "assertion",
+        "description": "Use screen reader to check that each section's title and content is properly announced"
+      }
+    ]
+  }
+]

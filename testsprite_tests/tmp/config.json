@@ -1,0 +1,16 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "diff",
+  "localEndpoint": "http://localhost:3000",
+  "executionArgs": {
+    "projectName": "portfolio",
+    "projectPath": "C:\\Users\\krish\\OneDrive\\Desktop\\portfolio",
+    "testIds": [],
+    "additionalInstruction": "",
+    "envs": {
+      "API_KEY": "sk-user-_-z3qU_US__y8_Pkp-lbl1aPLoU7IfaQm6aECrfv5EzZWbewSXbETD-pOnD3lr3jfprgzdQ9erRcPsWsAMoAVcsEOrwWjnGGZFrLAL-R3lbStlzyjXJiisMfrkHfRMlg6VY"
+    }
+  },
+  "proxy": "http://937edb5a-eebf-4227-9a22-8a5ed1d503db:ycKWGDN7w6nEmyQ8tNBWVAFBgLs7dNTW@tun.testsprite.com:8080"
+}

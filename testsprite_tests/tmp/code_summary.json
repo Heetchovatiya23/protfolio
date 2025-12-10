@@ -1,0 +1,31 @@
+{
+  "tech_stack": ["TypeScript", "Next.js", "React", "Tailwind CSS", "GSAP"],
+  "features": [
+    {
+      "name": "portfolio-readme-highlights",
+      "description": "README documents a Next.js App Router portfolio with responsive sections (Hero, About, Skills, Projects, Contact), custom typography, and npm-based setup.",
+      "files": ["README.md"]
+    },
+    {
+      "name": "root-layout-font-and-metadata",
+      "description": "Root layout loads JetBrains Mono via next/font with the --font-montreal-mono CSS variable and defines site metadata for the portfolio.",
+      "files": ["app/layout.tsx"]
+    },
+    {
+      "name": "section-reveal-scroll-animations",
+      "description": "useSectionReveal registers GSAP ScrollTrigger to animate title and content elements on scroll and refreshes the plugin during cleanup.",
+      "files": ["components/animations/useSectionReveal.ts"]
+    },
+    {
+      "name": "next-server-manifest-metadata",
+      "description": "Build artifacts include server reference manifest JSON with encryption key metadata.",
+      "files": [".next/server/server-reference-manifest.js", ".next/server/server-reference-manifest.json"]
+    },
+    {
+      "name": "next-build-trace-records",
+      "description": "Trace file captures Next.js build and bundling timing events for client, server, and edge pipelines.",
+      "files": [".next/trace"]
+    }
+  ]
+}
+
