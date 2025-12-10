@@ -3,8 +3,8 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "KRISH SAVALIYA — Creative Developer",
-  description: "Portfolio of Krish Savaliya, Web Developer & Designer."
+  title: "HEET CHOVATIYA — Creative Developer",
+  description: "Portfolio of Heet Chovatiya, Web Developer & Designer."
 };
 
 const montrealMono = JetBrains_Mono({
